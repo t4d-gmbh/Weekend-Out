@@ -13,7 +13,7 @@ They create branches for different categories of items: `feature/blankets`, `fea
 Each friend adds their items to the list and commits their changes.
 
 However, as they merge their branches into the main list, they encounter a problem: merge conflicts! 
-Alex and Jamie both added items to the same line in the `packing_list.txt` file. 
+Alex and Jamie both added items to the same line in the `packing_list.md` file. 
 Now, they need to resolve these conflicts to ensure everyone’s items are included.
 
 Thanks god they have learned about Git and how to resolve conflicts through the following exercises:
@@ -33,22 +33,22 @@ Create a new branch for the blankets feature and add the items Alex wants to bri
 git checkout -b feature/blankets
 ```
 
-open the `packing_list.txt` file, add some items and save the file.
+open the `packing_list.md` file, add some items and save the file.
 
 
 Commit your changes and push the branch to the remote repository.
 
 ```bash
-git add packing_list.txt
+git add packing_list.md
 git commit -m "Add blankets to the packing list"
 git push origin feature/blankets
 ```
 
 ## 2. Add Items on the main branch on the remote repository
 
-Make changes in the `packing_list.txt` file on the main branch on the remote repository directly in the browser.
+Make changes in the `packing_list.md` file on the main branch on the remote repository directly in the browser.
 
-Go to the repository on the remote server and open the `packing_list.txt` file. Add some items and commit the changes.
+Go to the repository on the remote server and open the `packing_list.md` file. Add some items and commit the changes.
 
 ## 3. Merge the Feature Branch into the Main Branch Locally
 
@@ -69,9 +69,9 @@ git merge feature/blankets
 
 ## 4. Resolve the Merge Conflict
 
-Open the `packing_list.txt` file and resolve the merge conflict.
+Open the `packing_list.md` file and resolve the merge conflict.
 
-1. The file will contain conflict markers `<<<<<<<`, `=======`, and `>>>>>>>` to indicate the conflicting changes. For example when Alex and Jamie both added items to the same line in the `packing_list.txt` file. Alex added "Extra blankets" directly on the main branch, and Jamie added "Sleeping bags" on the `feature/blankets` branch, the file might look like this:
+1. The file will contain conflict markers `<<<<<<<`, `=======`, and `>>>>>>>` to indicate the conflicting changes. For example when Alex and Jamie both added items to the same line in the `packing_list.md` file. Alex added "Extra blankets" directly on the main branch, and Jamie added "Sleeping bags" on the `feature/blankets` branch, the file might look like this:
     
     ```plaintext
     Blankets
@@ -93,7 +93,7 @@ Open the `packing_list.txt` file and resolve the merge conflict.
 3. Save the file and commit the changes.
     
     ```bash
-    git add packing_list.txt
+    git add packing_list.md
     git commit -m "Resolve merge conflict"
     ```
 
