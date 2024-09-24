@@ -36,13 +36,39 @@ git checkout -b feature/blankets
 open the `packing_list.md` file, add some items and save the file.
 
 
-Commit your changes and push the branch to the remote repository.
+Commit your changes and look at the log to see the commit history.
 
 ```bash
 git add packing_list.md
 git commit -m "Add blankets to the packing list"
+git log --oneline
+```
+
+Get a feeling for the repository and its commit history. 
+- What is the status of the repository after the commit? On which branch are you now?
+
+Play around with the log command to see the commit history in different formats.
+Check the man page for an overview of the available options. Some examples are:
+
+```bash
+git log --oneline --graph
+git log --oneline --author="Alice"
+git log --oneline --since="2 days ago"
+```
+
+- What information is displayed for each commit?
+- What is the commit hash and what is its purpose?
+- What's the difference between `git log` and `git reflog`?
+
+Push the branch to the remote repository.
+
+```bash
 git push origin feature/blankets
 ```
+
+- What does the `origin` refer to in the `git push` command? Hint: `git remote -v`.
+- What would be the result of the `git push` command if you didn't specify the branch name?
+- In which cases would it be useful to have multiple remote repositories?
 
 ## 2. Add Items on the main branch on the remote repository
 
@@ -61,11 +87,20 @@ git checkout main
 git pull origin main
 ```
 
+Before you continue, think about the following questions:
+- What is the purpose of the `git pull` command?
+- What is the difference between `git pull` and `git fetch`?
+- What would happen if you tried to push changes to a branch that has new commits on the remote repository? Try it out!
+- What is the difference between `git pull origin main` and `git pull`?
+
 Merge the `feature/blankets` branch into the main branch.
 
 ```bash
 git merge feature/blankets
 ```
+
+- How could you prevent a merge commit from being created when merging branches? Why would you want to do that?
+- What would have been the result if you had merged the main branch into the `feature/blankets` branch instead?
 
 ## 4. Resolve the Merge Conflict
 
@@ -109,3 +144,4 @@ git push origin main
 
 Now the `feature/blankets` branch is merged into the main branch, and the conflict are resolved. The packing list is updated with the items from both branches.
 
+- Which strategy would you had to use to merge the feature branch into the main branch without creating a merge conflict?
