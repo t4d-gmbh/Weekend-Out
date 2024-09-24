@@ -5,15 +5,15 @@ They plan a weekend getaway to the mountains, where they can relax, hike, and en
 To make sure they don’t forget anything important, they create a shared packing list in a Git repository called “Weekend Out.”
 
 Each friend has their own ideas about what to bring.
-Alex thinks they need extra blankets for the chilly nights, while Jamie insists on packing a portable grill for a barbecue. 
-Taylor, the group’s tech enthusiast, wants to bring a drone to capture stunning aerial shots of their adventure.
+Bob thinks they need extra blankets for the chilly nights, while Alice insists on packing a portable grill for a barbecue. 
+Carol, the group’s tech enthusiast, wants to bring a drone to capture stunning aerial shots of their adventure.
 
 To keep things organized, they decide to use Git to manage their packing list. 
 They create branches for different categories of items: `feature/blankets`, `feature/grill`, and `feature/drone`. 
 Each friend adds their items to the list and commits their changes.
 
 However, as they merge their branches into the main list, they encounter a problem: merge conflicts! 
-Alex and Jamie both added items to the same line in the `packing_list.md` file. 
+Bob and Alice both added items to the same line in the `packing_list.md` file. 
 Now, they need to resolve these conflicts to ensure everyone’s items are included.
 
 Thanks god they have learned about Git and how to resolve conflicts through the following exercises:
@@ -27,7 +27,7 @@ git clone git@github.com:t4d-gmbh/Weekend-Out.git
 cd Weekend-Out
 ```
 
-Create a new branch for the blankets feature and add the items Alex wants to bring.
+Create a new branch for the blankets feature and add the items Bob wants to bring.
 
 ```bash
 git checkout -b feature/blankets
@@ -71,7 +71,7 @@ git merge feature/blankets
 
 Open the `packing_list.md` file and resolve the merge conflict.
 
-1. The file will contain conflict markers `<<<<<<<`, `=======`, and `>>>>>>>` to indicate the conflicting changes. For example when Alex and Jamie both added items to the same line in the `packing_list.md` file. Alex added "Extra blankets" directly on the main branch, and Jamie added "Sleeping bags" on the `feature/blankets` branch, the file might look like this:
+1. The file will contain conflict markers `<<<<<<<`, `=======`, and `>>>>>>>` to indicate the conflicting changes. For example when Bob and Alice both added items to the same line in the `packing_list.md` file. Bob added "Extra blankets" directly on the main branch, and Alice added "Sleeping bags" on the `feature/blankets` branch, the file might look like this:
     
     ```plaintext
     Blankets
