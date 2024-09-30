@@ -95,7 +95,7 @@ On your local machine, switch to the main branch and pull the latest changes fro
 
 ```bash
 git checkout main
-git pull origin main
+git pull origin main # or simply `git pull`
 ```
 
 Before you continue, think about the following questions:
@@ -106,7 +106,7 @@ Solution: The `git pull` command fetches changes from the remote repository and 
 Solution: `git pull` fetches changes from the remote repository and merges them into the current branch. It is a combination of `git fetch` and `git merge`. On the other hand, `git fetch` only fetches changes from the remote repository without merging them. It is useful for checking for updates without affecting your local branch.
 
 - What would happen if you tried to push changes to a branch that has new commits on the remote repository? Try it out!
-Solution: If you try to push changes to a branch that has new commits on the remote repository, Git will reject the push and ask you to pull the changes first. This is because the remote branch has new commits that are not in your local branch, and Git wants you to merge them before pushing your changes.
+Solution: If you try to push changes to a branch that has new commits on the remote repository, Git will reject the push and ask you to pull (= fetch + merge) the changes first. This is because the remote branch has new commits that are not in your local branch, and Git wants you to first locally merge the remote with your local changes before pushing you local changes to the remote (remember: the goal is to always keep a healthy reference).
 
 - What is the difference between `git pull origin main` and `git pull`?
 Solution: `git pull origin main` fetches changes from the remote repository (origin) and merges them into the current branch (main). It is useful when you want to pull changes from a specific branch on the remote repository. On the other hand, `git pull` fetches changes from the remote repository and merges them into the current branch. It is a shorthand for `git pull origin <current-branch>`.
@@ -119,9 +119,6 @@ git merge feature/blankets
 
 - How could you prevent a merge commit from being created when merging branches? Why would you want to do that?
 Solution: You can prevent a merge commit from being created when merging branches by using the `--no-ff` flag with the `git merge` command. This flag forces Git to create a merge commit even if it could perform a fast-forward merge. You might want to do this to preserve the history of the branches and show that a merge occurred.
-
-- What would have been the result if you had merged the main branch into the `feature/blankets` branch instead?
-Solution: If you had merged the main branch into the `feature/blankets` branch instead, the changes from the main branch would have been applied to the `feature/blankets` branch. This would have included the items added on the main branch in the `feature/blankets` branch.
 
 ## 4. Resolve the Merge Conflict
 
