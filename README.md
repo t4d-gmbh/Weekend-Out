@@ -144,4 +144,5 @@ git push origin main
 
 Now the `feature/blankets` branch is merged into the main branch, and the conflict are resolved. The packing list is updated with the items from both branches.
 
-- Which strategy would you had to use to merge the feature branch into the main branch without creating a merge conflict?
+- Which strategy would you have had to use to merge the feature branch into the main branch without creating a merge conflict?
+-  Is avoiding a merge conflicts generally a good strategy?

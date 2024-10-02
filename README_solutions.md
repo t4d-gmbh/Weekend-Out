@@ -162,5 +162,7 @@ git push origin main
 
 Now the `feature/blankets` branch is merged into the main branch, and the conflict are resolved. The packing list is updated with the items from both branches.
 
-- Which strategy would you had to use to merge the feature branch into the main branch without creating a merge conflict?
+- Which strategy would you have had to use to merge the feature branch into the main branch without creating a merge conflict?
 Solution: To merge the feature branch into the main branch without creating a merge conflict, you could have used a rebase strategy. This would have applied the changes from the feature branch on top of the main branch, avoiding the conflict. However, rebasing changes the commit history and should be used with caution, especially in shared repositories.
+-  Is avoiding a merge conflicts generally a good strategy?
+Solution: Avoiding merge conflicts is generally not a good strategy. Merge conflicts are a natural part of collaborative development and can help identify conflicting changes early. Resolving conflicts allows team members to communicate and understand each other's changes, leading to better code quality and collaboration. It is important to embrace conflicts as an opportunity to improve the codebase and the team's communication. Avoiding them with rebase invents a history that looks as if the developers never concurrently worked on a same branch. If you value the "logbook" character of a git history (which is often the case in academia) rebases are a no-no!
