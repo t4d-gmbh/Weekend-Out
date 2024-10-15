@@ -76,7 +76,7 @@ git push origin feature/blankets
 Solution: `origin` is the default name for the remote repository. It is a shorthand for the URL of the remote repository. You can have multiple remotes with different names. The `-v` flag shows the URLs of the remotes.
 
 - What would be the result of the `git push` command if you didn't specify the branch name?
-Solution: The default behavior of `git push` is to push the current branch to the remote repository. If you don't specify the branch name, Git will push the current branch to the remote repository.
+Solution: The default behavior of `git push` is to push the current branch to the remote repository. If you don't specify the branch name, Git will push the current branch to the remote repository. Think of a situation where you need to explicitly state the name of the remote and why this situation might be useful.
 
 - In which cases would it be useful to have multiple remote repositories?
 Solution: Having multiple remotes can be useful when working with different teams or repositories. For example, you might have a remote repository for your team's work (e.g. on a private enterprise server) and another remote repository for open-source contributions (e.g. on a public platform like GitHub, GitLab, or Bitbucket). You can push and pull changes from different remotes depending on the context.
@@ -118,7 +118,11 @@ git merge feature/blankets
 ```
 
 - How could you prevent a merge commit from being created when merging branches? Why would you want to do that?
-Solution: You can prevent a merge commit from being created when merging branches by using the `--no-ff` flag with the `git merge` command. This flag forces Git to create a merge commit even if it could perform a fast-forward merge. You might want to do this to preserve the history of the branches and show that a merge occurred.
+Solution: By default, `git merge` performs a fast-forward merge if possible which is equal to `git merge --ff`. This means that if the branch being merged is directly ahead of the current branch, Git will simply move the branch pointer forward to the latest commit, avoiding the creation of a merge commit. For example, if your current branch is `main` and you want to merge `feature/blankets`: `git merge feature/blankets` if `main` can be fast-forwarded to include all commits from `feature/blankets`, Git will do so without creating a merge commit. If there are divergent commit on both branches, Git will create a merge commit to combine the histories.
+Non-default merge scenarios could be:
+- *Merge with no fast-forward*: You want to ensure a merge commit is always created, even if a fast-forward merge is possible: `git merge --no-ff feature/blankets`. Git creates a merge commit to preserve the context of the feature branch. This can be useful for maintaining a clear project history, where each feature or bug fix is encapsulated in its own branch and merge commit, e.g., a merge commit clearly indicates that a feature or bug fix branch was integrated into the main branch. This helps in understanding the development history and the context of changes.
+- *Rebase before merge*: Remember that `git pull` first fetches the lates changes from the remote with `git fetch` and then either calls `git merge` to fast-forward ahead of the current branch or rebases your current branch of top of those changes. You want to rebase your current branch on top of the branch you are merging from to maintain a linear history: `git pull --rebase`
+Note: Read the manuals of `git merge` and `git pull` to understand how different arguments affect each other.
 
 ## 4. Resolve the Merge Conflict
 
