@@ -1,7 +1,7 @@
-# The Weekend Out
+# The Weekend Out Git Exercise <i class="fa-solid fa-person-hiking"></i>
 
 Imagine this: A group of friends, tired from their busy university schedules, decides to take a much-needed break.
-They plan a weekend getaway to the mountains, where they can relax, hike, and enjoy nature. 
+They plan a weekend getaway to the mountains <i class="fa-solid fa-mountain"></i>, where they can relax, hike, and enjoy nature. 
 To make sure they don’t forget anything important, they create a shared packing list in a Git repository called “Weekend Out.”
 
 Each friend has their own ideas about what to bring.
@@ -12,13 +12,15 @@ To keep things organized, they decide to use Git to manage their packing list.
 They create branches for different categories of items: `feature/blankets`, `feature/grill`, and `feature/drone`. 
 Each friend adds their items to the list and commits their changes.
 
+## Part 1: Setting Up the Repository and Adding Items Locally
+
 However, as they merge their branches into the main list, they encounter a problem: merge conflicts! 
 Bob and Alice both added items to the same line in the `packing_list.md` file. 
 Now, they need to resolve these conflicts to ensure everyone’s items are included.
 
 Thanks god they have learned about Git and how to resolve conflicts through the following exercises:
 
-## 1. Setting Up the Repository and Adding Items
+### 1. Setting Up the Repository and Adding Items
 
 Clone the repository to your local machine and navigate to the project directory.
 
@@ -70,13 +72,13 @@ git push origin feature/blankets
 - What would be the result of the `git push` command if you didn't specify the branch name?
 - In which cases would it be useful to have multiple remote repositories?
 
-## 2. Add Items on the main branch on the remote repository
+### 2. Add Items on the main branch on the remote repository
 
 Make changes in the `packing_list.md` file on the main branch on the remote repository directly in the browser.
 
 Go to the repository on the remote server and open the `packing_list.md` file. Add some items and commit the changes.
 
-## 3. Merge the Feature Branch into the Main Branch Locally
+### 3. Merge the Feature Branch into the Main Branch Locally
 
 You want to include the additional items from the main branch in your feature branch. To do this, you need to merge the `feature/blankets` branch into the main branch.
 
@@ -102,7 +104,7 @@ git merge feature/blankets
 - How could you prevent a merge commit from being created when merging branches? Why would you want to do that?
 - What would have been the result if you had merged the main branch into the `feature/blankets` branch instead?
 
-## 4. Resolve the Merge Conflict
+### 4. Resolve the Merge Conflict
 
 Open the `packing_list.md` file and resolve the merge conflict.
 
@@ -134,7 +136,7 @@ Open the `packing_list.md` file and resolve the merge conflict.
 
 _Note_: You can also use a merge tool to resolve the conflict. E.g.: `git mergetool` or in IDEs like Visual Studio Code, you can use the built-in merge tool to resolve the conflict. It will show you the changes from both branches side by side, and you can choose which changes to keep.
 
-## 5. Push the Changes to the Remote Repository
+### 5. Push the Changes to the Remote Repository
 
 Push the changes to the remote repository.
 
@@ -146,3 +148,77 @@ Now the `feature/blankets` branch is merged into the main branch, and the confli
 
 - Which strategy would you have had to use to merge the feature branch into the main branch without creating a merge conflict?
 -  Is avoiding a merge conflicts generally a good strategy?
+
+## Part 2: Feature Branch Development Cycle and Conflict Resolution Online
+
+Now that you've set up the repository and added items locally, it's time to step through a feature branch development cycle using the project management tools provided by the remote services. 
+This part will focus on working entirely online in the remote IDE.
+
+### 1. Creating a Project Board and Tasks
+
+Carol, the tech enthusiast, wants to add a drone to the packing list. 
+She will start by creating a project board and adding tasks/issues for the items she wants to bring.
+
+- Go to the repository on the remote server: [Weekend Out](https://github.com/t4d-gmbh/Weekend-Out/)
+    - Fork the repository to your account.
+- Create a new project board called "Drone Feature".
+- Add tasks/issues to the project board:
+  - **Task 1**: Add drone to packing list.
+  - **Task 2**: Add extra batteries to packing list.
+  - **Task 3**: Add camera to packing list.
+  - **Task 4**: Review changes and resolve conflicts.
+
+### 2. Creating a New Feature Branch Online
+
+Carol will create a new feature branch directly on the remote repository.
+
+- Go to your forked repository on the remote server (GitHub or GitLab).
+- Create a new branch called `feature/drone` from the main branch.
+
+### 3. Adding Items to the Feature Branch
+
+Carol will add her items to the `packing_list.md` file directly in the browser.
+
+- Navigate to the `packing_list.md` file in the `feature/drone` branch in the remote repository. Open the file for editing in the remote IDE.
+- Add the first item that Carol wants to bring (e.g., drone).
+- Commit this first added item with a descriptive message. Link the commit to the respective task on the project board. Hint: When you start typing `#`, you will see a list of tasks from the project board to link to the commit.
+    - Why is it useful to link commits to tasks on the project board?
+
+### 4. Using Project Management Tools
+
+Carol will use the project management tools to track her progress.
+
+- After completing the first task, move it manually on the project board as she completed it.
+For the other tasks, Carol will use automatic project board updates.
+- Think about how you can track the progress of a project by automatically updating the project board based on commit messages?
+- Add the other items to the `packing_list.md` file and commit them with descriptive messages. Link the commits to the respective tasks on the project board.
+
+### 5. Merging the Feature Branch into the Main Branch with a Pull Request
+
+Once Carol has added all the items to the `packing_list.md` file, she will merge her `feature/drone` branch into the main branch.
+
+- Create a pull request from `feature/drone` to `main`. Link the pull request to the tasks on the project board with [closing keywords](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue).
+
+### 6. Identifying and Resolving Conflicts
+
+While Carol was working on her feature branch, Alice made changes to the main branch that conflict with Carol's changes.
+
+- Resolve the conflicts in the `packing_list.md` file directly in the browser.
+- Commit the changes with a descriptive message. Remember to link the commit to the respective task on the project board.
+
+### 7. Completing the Pull Request
+
+After resolving the conflicts, Carol will request a review of her changes to the packing list from another team member.
+
+- Request a review from another team member on the pull request.
+- Start the review process by adding comments to specific lines in the `packing_list.md` file.
+    - Propose changes to some lines in the `packing_list.md` file.
+    - Accept the changes and approve the pull request.
+- Merge the pull request and delete the `feature/drone` branch.
+- Check the project board to see the status of the tasks. They should all be marked as "Done".
+
+### 7. Reflecting on the Process
+
+- Discuss the benefits of using feature branches and project management tools.
+- Reflect on the experience of resolving conflicts online.
+- Consider how these practices can improve collaboration and project management in a research setting.
