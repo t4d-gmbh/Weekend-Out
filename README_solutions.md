@@ -77,7 +77,7 @@ git log --oneline --since="2 days ago"
 
 - _Q.4._ What's the difference between `git log` and `git reflog`?
 ---
-> **Solution Q.4**: `git log` shows the commit history of the current branch including merges and commits which are not part of the current branch history (e.g. commits from other branches). It is useful for tracking changes in the repository over time. On the other hand, `git reflog` shows the history of HEAD movements. This includes branch checkouts, commits, and merges and is useful for recovering lost commits.
+> **Solution Q.4**: `git log` shows the current branche's commit history, including merges and commits which are not part of the current branch history (e.g. commits from other branches). It is useful for tracking changes in the repository over time. On the other hand, `git reflog` shows the history of HEAD movements. This includes branch checkouts, commits, and merges, and is useful for recovering lost commits.
 ---
 
 Push the branch to the remote repository.
@@ -88,12 +88,12 @@ git push origin feature/blankets
 
 - _Q.5._ What does the `origin` refer to in the `git push` command? Hint: `git remote -v`.
 ---
-> **Solution Q.5**: `origin` is the default name for the remote repository. It is a shorthand for the URL of the remote repository. You can have multiple remotes with different names. The `-v` flag shows the URLs of the remotes.
+> **Solution Q.5**: `origin`  is the default name for the remote repository and serves as a shorthand for its URL. You can have multiple remotes with different names. The `-v` flag displays the URLs of all remotes.
 ---
 
-- _Q.6._ What would be the result of the `git push` command if you didn't specify the branch name?
+- _Q.6._ What would be the result of the `git push` command if you didn't specify the branch name? Think of a situation where you need to explicitly state the name of the remote and why this situation might be useful.
 ---
-> **Solution Q.6**: The default behavior of `git push` is to push the current branch to the remote repository. If you don't specify the branch name, Git will push the current branch to the remote repository. Think of a situation where you need to explicitly state the name of the remote and why this situation might be useful.
+> **Solution Q.6**: The default behavior of `git push` is to push the current branch to the remote repository. If you don't specify the branch name, Git will push the current branch to the remote repository. 
 ---
 
 - _Q.7._ In which cases would it be useful to have multiple remote repositories?
@@ -131,7 +131,7 @@ Before you continue, think about the following questions:
 
 - _Q.10._ What would happen if you tried to push changes to a branch that has new commits on the remote repository? Try it out!
 ---
-> **Solution Q.10**: If you try to push changes to a branch that has new commits on the remote repository, Git will reject the push and ask you to pull (= fetch + merge) the changes first. This is because the remote branch has new commits that are not in your local branch, and Git wants you to first locally merge the remote with your local changes before pushing you local changes to the remote (remember: the goal is to always keep a healthy reference).
+> **Solution Q.10**: If you try to push changes to a branch that has new commits on the remote repository, Git will reject the push and ask you to pull (= fetch + merge) the changes first. This is because the remote branch has new commits that are not in your local branch, and Git wants you to first locally merge the remote with your local changes before pushing you local changes to the remote (_Reminder_: the goal is to always keep a healthy reference).
 ---
 
 - _Q.11._ What is the difference between `git pull origin main` and `git pull`?
@@ -147,7 +147,7 @@ git merge feature/blankets
 
 - _Q.12._ How could you prevent a merge commit from being created when merging branches? Why would you want to do that?
 ---
-> **Solution Q.12**: By default, `git merge` performs a fast-forward merge if possible which is equal to `git merge --ff`. This means that if the branch being merged is directly ahead of the current branch, Git will simply move the branch pointer forward to the latest commit, avoiding the creation of a merge commit. For example, if your current branch is `main` and you want to merge `feature/blankets`: `git merge feature/blankets` if `main` can be fast-forwarded to include all commits from `feature/blankets`, Git will do so without creating a merge commit. If there are divergent commit on both branches, Git will create a merge commit to combine the histories.
+> **Solution Q.12**: By default, `git merge` performs a fast-forward merge if possible, which is equal to `git merge --ff`. This means that if the branch being merged is directly ahead of the current branch, Git will simply move the branch pointer forward to the latest commit, avoiding the creation of a merge commit. For example, if your current branch is `main` and you want to merge `feature/blankets`: `git merge feature/blankets` if `main` can be fast-forwarded to include all commits from `feature/blankets`, Git will do so without by creating a merge commit. If there are divergent commit on both branches, Git will create a merge commit to combine the histories.
 Non-default merge scenarios could be:
 > - *Merge with no fast-forward*: You want to ensure a merge commit is always created, even if a fast-forward merge is possible: `git merge --no-ff feature/blankets`. Git creates a merge commit to preserve the context of the feature branch. This can be useful for maintaining a clear project history, where each feature or bug fix is encapsulated in its own branch and merge commit, e.g., a merge commit clearly indicates that a feature or bug fix branch was integrated into the main branch. This helps in understanding the development history and the context of changes.
 > - *Rebase before merge*: Remember that `git pull` first fetches the lates changes from the remote with `git fetch` and then either calls `git merge` to fast-forward ahead of the current branch or rebases your current branch of top of those changes. You want to rebase your current branch on top of the branch you are merging from to maintain a linear history: `git pull --rebase`
