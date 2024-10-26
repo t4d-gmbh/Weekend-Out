@@ -1,6 +1,6 @@
-[] tooth-brush
-[] tooth-paste
-[] sunscream
-[] hiking boots
-[] water-bottle
-[] sleeping-pad
+- [ ] toothbrush
+- [ ] toothpaste
+- [ ] sunscreen
+- [ ] hiking boots
+- [ ] water bottle
+- [ ] sleeping pad
