@@ -18,16 +18,18 @@ Now, they need to resolve these conflicts to ensure everyone’s items are inclu
 
 Thanks god they have learned about Git and how to resolve conflicts through the following exercises:
 
-## 1. Setting Up the Repository and Adding Items
+### 1. Set up the repository and add items
 
-Clone the repository to your local machine and navigate to the project directory.
+First, create a new repository using the Weekend Out repository as a template, aka forking. You can easily do this via the **Use this template** green drop-down list located on the top-right of this page.
+
+Clone the repository to your local machine and navigate to the project directory. Don't forget to **add your username** in the directory path!
 
 ```bash
-git clone git@github.com:t4d-gmbh/Weekend-Out.git
+git clone git@github.com:<username>/Weekend-Out.git
 cd Weekend-Out
 ```
 
-Create a new branch for the blankets feature and add the items Bob wants to bring.
+Create a new `feature/blankets` branch and add the items Bob wants to bring.
 
 ```bash
 git checkout -b feature/blankets
@@ -81,13 +83,13 @@ Solution: The default behavior of `git push` is to push the current branch to th
 - In which cases would it be useful to have multiple remote repositories?
 Solution: Having multiple remotes can be useful when working with different teams or repositories. For example, you might have a remote repository for your team's work (e.g. on a private enterprise server) and another remote repository for open-source contributions (e.g. on a public platform like GitHub, GitLab, or Bitbucket). You can push and pull changes from different remotes depending on the context.
 
-## 2. Add Items on the main branch on the remote repository
+## 2. Add items on the main branch on the remote repository
 
 Make changes in the `packing_list.md` file on the main branch on the remote repository directly in the browser.
 
 Go to the repository on the remote server and open the `packing_list.md` file. Add some items and commit the changes.
 
-## 3. Merge the Feature Branch into the Main Branch Locally
+## 3. Locally merge the feature branch into the main branch
 
 You want to include the additional items from the main branch in your feature branch. To do this, you need to merge the `feature/blankets` branch into the main branch.
 
@@ -124,7 +126,7 @@ Non-default merge scenarios could be:
 - *Rebase before merge*: Remember that `git pull` first fetches the lates changes from the remote with `git fetch` and then either calls `git merge` to fast-forward ahead of the current branch or rebases your current branch of top of those changes. You want to rebase your current branch on top of the branch you are merging from to maintain a linear history: `git pull --rebase`
 Note: Read the manuals of `git merge` and `git pull` to understand how different arguments affect each other.
 
-## 4. Resolve the Merge Conflict
+## 4. Resolve the merge conflict
 
 Open the `packing_list.md` file and resolve the merge conflict.
 
@@ -156,7 +158,7 @@ Open the `packing_list.md` file and resolve the merge conflict.
 
 _Note_: You can also use a merge tool to resolve the conflict. E.g.: `git mergetool` or in IDEs like Visual Studio Code, you can use the built-in merge tool to resolve the conflict. It will show you the changes from both branches side by side, and you can choose which changes to keep.
 
-## 5. Push the Changes to the Remote Repository
+## 5. Push the changes to the remote repository
 
 Push the changes to the remote repository.
 
