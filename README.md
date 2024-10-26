@@ -23,10 +23,12 @@ Luckily, they have learned about Git and how to resolve conflicts through the fo
 
 ### 1. Set up the repository and add items
 
-Clone the repository to your local machine and navigate to the project directory.
+First, create a new repository using the Weekend Out repository as a template, aka forking. You can easily do this via the **Use this template** green drop-down list located on the top-right of this page.
+
+Clone the repository to your local machine and navigate to the project directory. Don't forget to **add your username** in the directory path!
 
 ```bash
-git clone git@github.com:t4d-gmbh/Weekend-Out.git
+git clone git@github.com:<username>/Weekend-Out.git
 cd Weekend-Out
 ```
 
