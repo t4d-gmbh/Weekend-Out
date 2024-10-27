@@ -163,8 +163,8 @@ Carol, the tech enthusiast, wants to add a drone to the packing list.
 She will start by creating a project board and adding tasks/issues for the items she wants to bring.
 
 - Go to the repository on the remote server: [Weekend Out](https://github.com/t4d-gmbh/Weekend-Out/)
-    - Fork the repository to your account.
-- Create a new project board called "Drone Feature".
+    - Fork the repository to your account OR continue on the repository you used to complete Part 1.
+- Go to "Projects" and create a new project board called "Drone Feature".
 - Add tasks/issues to the project board:
   - **Task 1**: Add drone to packing list.
   - **Task 2**: Add extra batteries to packing list.
