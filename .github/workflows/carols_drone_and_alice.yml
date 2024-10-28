@@ -1,0 +1,33 @@
+name: Auto Commit Blanket
+
+on:
+  pull_request:
+    types:
+      - opened
+
+permissions:
+  packages: read
+  contents: write
+  pull-requests: write
+  repository-projects: write
+
+jobs:
+  adding-list:
+    if:  ${{ contains(github.head_ref, 'restruct') }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          ref: main
+
+      - name: Adding drone to packing_list.md
+        run: |
+          echo "- [ ] drone" > Carols_drone_list.md
+          echo "- [ ] extra battery" >> Carols_drone_list.md
+          git config --global user.name 'Alice[bot]'
+          git config --global user.email 'Alice[bot]@wonderland.com'
+          git add Carols_drone_list.md
+          git commit -m "Adding Carols drone list"
+          git push origin main

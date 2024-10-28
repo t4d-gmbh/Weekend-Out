@@ -1,0 +1,28 @@
+name: Carols Issue
+
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  carols_issue:
+    if: ${{ contains(github.event.issue.title, 'restruct')}}
+    permissions:
+      contents: read
+      issues: write
+
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      OWNER: ${{ github.repository_owner }}
+      REPO: ${{ github.event.repository.name }}
+      EVENT: ${{ github.event.issue.number }}  # This is either the issue or pr
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Carol comments
+        run: |
+          git config --global user.name 'Carol[bot]'
+          git config --global user.email 'Carol[bot]@wonderland.com'
+          echo -e "**Carol** wants create a dedicated list for the done and add:\n\n- drone\n- extra battery\n- camera\n- spare rotors" > msg
+          export msg=$(cat msg); gh issue comment ${{ env.EVENT }} --body "$msg" --repo ${{ env.OWNER }}/${{ env.REPO }}
