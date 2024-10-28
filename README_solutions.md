@@ -288,7 +288,7 @@ Now, without casting blame around, it would be helpful to understand how the hea
 _Hints:_
 
   - The "Insights" tab in your `Weekend-Out` Repository has a `Network` view (Note: Only accessible in `public` Repositories).
-    The `Network` view depicts a chronologically order graph with all commits.
+    The `Network` view depicts a chronologically ordered graph with all commits.
 
     _Alternatively:_ If you prefer not to make your `Weekend-Out` repository public, you can view the "Network" in your command line:
 

@@ -232,7 +232,7 @@ Now, without casting blame around, it would be helpful to understand how the hea
 _Hints:_
 
   - The "Insights" tab in your `Weekend-Out` Repository has a `Network` view (Note: Only accessible in `public` Repositories).
-    The `Network` view depicts a chronologically order graph with all commits.
+    The `Network` view depicts a chronologically ordered graph with all commits.
 
     _Alternatively:_ If you prefer not to make your `Weekend-Out` repository public, you can view the "Network" in your command line:
 
@@ -241,10 +241,3 @@ _Hints:_
     git pull
     git log --all --decorate --oneline --graph
     ```
-
-
-    - Alice pushed changes to the `main` branch while you were still working on your feature branch.
-
-  This situation is a bit akward, but it is always each person's responsability to ensure their feature branch is up to date with `main` _before_ merging.
-
-
