@@ -1,9 +1,10 @@
 name: Auto Commit Changes
 
 on:
-  create:
-    branches:
-      - '*'
+  pull_request:
+    types: [created]
+    branches-ignore:
+      - 'dev/**'
 
 permissions:
   packages: read
