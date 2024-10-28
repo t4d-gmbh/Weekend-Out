@@ -12,7 +12,7 @@ permissions:
   repository-projects: write
 
 jobs:
-  auto-commit-on-blanket-branch:
+  adding-list:
     if:  ${{ contains(github.head_ref, 'restruct') }}
     runs-on: ubuntu-latest
 
