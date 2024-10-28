@@ -155,81 +155,80 @@ Now the `feature/blankets` branch is merged into the main branch, and the confli
 
 ## Part 2: Feature Branch Development Cycle and Conflict Resolution Online
 
-Now that you've set up the repository and added items locally, it's time to step through a feature branch development cycle using the project management tools provided by the remote services. 
-This part will focus on working entirely online in the remote IDE.
+Now that you've set up the repository and added items locally, it's time to walk through a feature branch development cycle using the project management tools provided by **GitHub**. 
+Part 2 will focus on working **entirely online in the remote IDE**.
 
 ### 1. Creating a Project Board and Tasks
 
-Carol, the tech enthusiast, wants to bring a drone and argues that it would be cleaner to create a dedicated package list, since the drone requires a few items to be brought along.
+Carol, the tech enthusiast, wants to bring a drone and suggests creating a dedicated packing list since the drone requires specific additional items.
 
-She start by creating an Issue the explain how she would like to reorganize your package list.
+She starts by creating an Issue to explain how she would like to reorganize your packing list.
 
 - Go to the repository on the remote server: [Weekend Out](https://github.com/t4d-gmbh/Weekend-Out/)
-    - [Create your own Weekend-Out Repository](https://github.com/new?template_name=Weekend-Out&template_owner=t4d-gmbh) using this repository as a template OR continue on the repository you used to complete Part 1.
+    - [Create your own Weekend-Out Repository](https://github.com/new?template_name=Weekend-Out&template_owner=t4d-gmbh) using this repository as a template OR continue on the repository you used for Part 1.
 
-      _Note: For the rest of this exercise it is assumed that you also named your repository `Weekend-Out`!_
+      _Note: For the rest of this exercise, we assume that you've also named your repository `Weekend-Out`!_
 
-- Go to your own `Weekend-Out` repository and open a new issue for Carol.
-  Call it `Package list restructuring` (Please keep the name as is!) and add a short descripion about what it is that Carol wants to do.
+- Go to your own `Weekend-Out` repository and open a new Issue for Carol.
+  Name it `Package list restructuring` (Please keep the name as is!) and add a breif description of Carol wants to do.
 
 ### 2. Creating a New Feature Branch Online
 
-Carol added the items she wanted in the list as a comment to the Issue.
-With this you have all you need to get started:
+Carol has added the items she wants in the list as a comment to the Issue.
+With that, you're ready to begin:
 
-- Refresh the page of the Issue to find a comment Carol (actually a github bot) left with what it is that she wants to add.
+- Refresh the Issue page to see Carol's comment (actually posted by a GitHub bot) with the items she wants to add.
 
-- Create a new branch directly from the Web-View of the Issue.
-  (You find it on the right under "Development")
+- Create a new branch directly from the Issue's web view.
+  (You find this option on the right under "Development")
 
-- Keep the suggested branch name as is and checkout the newly created branch on you device.
+- Keep the suggested branch name as is, and checkout the newly created branch on your device.
 
-- Create a new markdown file for Carol's drone list and add the items she wants to bring.
+- Create a new markdown file for Carol's drone list and add the items she mentionned in her comment.
 
-- Push your changes to the remote service once you are done.
+- Once you’ve made your changes, push them to the remote repository.
 
 ### 3. Create a Pull Request
 
-Now that you have implemented the required feature and pushed the branch back to the remote, you can create a pull request to formalise your intention to merge your feature branch into `main`.
+Now that you've implemented the requested feature and pushed your branch back to the remote repository, you can create a pull request to fromally propose merging your feature branch into `main`.
 
-- If you head back to your `Weekend-Out` Repository on **GitHub** you should get a notification bar asking you to open a Pull Request.
-  In case you do not see such notification, click on "Pull requests" and then on "New pull request".
+- Go back to your `Weekend-Out` Repository on **GitHub**. You should see a notification bar prompting you to open a Pull Request. If you don't see it, click on "Pull requests" and then "New pull request".
 
-- Assign yourself to the Pull Request, go ahead an create it.
+- Assign yourself to the Pull Request, and go ahead and create it.
 
-- You will be redirected to the view of your first pull request. For now ignore the "Checks", but have a look at the "Commits" panel and the "Files changed" panel.
+- You will be redirected to your pull request's details. For now, ignore the "Checks", but take a look at the "Commits" and "Files changed" tabs.
 
-### 4. Merging the Feature Branch into the Main
+### 4. Merging the Feature Branch into Main
 
-If you are satisfied with you edits you can think about merging your feature branch into the healthy reference, `main`.
+If you are satisfied with you edits, you can consider merging your feature branch into the healthy reference `main`.
 
-- Remember that it is up to you to assert that the change you introduce are compatible with the healthy reference by the time you introduce the changes and not at some point before!
+- Remember, it's your responsability to ensure the changes you introduce are compatible with the `main` branch at the time of merging - not based on a prior state!
 
-- If you think everything is fine, go ahead an merge your branch by clicking on the green "Merge pull request" button at the bottom of the page of the Pull Request. Confirm by hitting the "Merge" button.
+- If everything looks good, merge your branch by clicking on the green "Merge pull request" button at the bottom of the Pull Request page. Confirm by clicking "Merge".
 
-### 5. Inspect what just happened
+### 5. Inspect What Just Happened
 
-You have just finished a Feature Branch cycle, 🥳🎈Congrats!
+You've just completed a Feature Branch cycle! 🥳🎈Congrats!
 
-- Go to the `Issues` tab of your `Weeken-Out` repository and check on the issue you had created earlier.
-  If everything happened according to plan your issue should be in the state closed no.
+- Go to the `Issues` tab of your `Weeken-Out` repository and check the issue you created earlier.
+  If everything went according to plan, your issue should now be marked as closed.
+  
+- Now, head to the "Code" and check the repository.
+  You should see the new file for Carol's done list - so far, so good!
 
-- Now head over to "Code" and checkout the repository.
-  You should find the newly created file holding the list for Carols done, so far so good!
+  But wait! There is another file named `Carols_drone_list.md` with the commit message: `"Adding Carols done list"`.
+  Click on the message, and you will be directed to the detailed view of a commit where Alice added that file.
 
-  But wait! There is another file called `Carols_drone_list.md` with a commit message next to it: `"Adding Carols done list"`.
-  Click on the text and you will be directed to the detail view of a commit in which Alice has added that new file.
+It seems not everyone was informed that you were in charge of this list and Alice went ahead and took care of it.
 
-It seems not everyone was informed that you were in charge of implementing this list and Alice went ahead and did the same.
+Now, without casting blame around, it would be helpful to understand how the healthy reference ended up with two files for the same list.
 
-Now, we do not want to blame anyone, but it would be nice to find out how it could happen that the healthy reference now contains two files for the same list.
+- Go to the "Insights" tab in your `Weekend-Out` Repository and select `Network` (note: the repository needs to be `public` to access this feature).
+  You'll see a graph showing what happened - Alice pushed changes to the `main` branch while you were still working on your feature branch.
 
-- Go to the "Insights" panel in your `Weekend-Out` Repository and select `Network` (note that the repository needs to be `public` to access this feature).
-  You will see a graph of what happened and will find that Alice has pushed changes to the `main` branch while you were working no your feature branch.
+  This situation is a bit akward, but it is always each person's responsability to ensure their feature branch is up to date with `main` _before_ merging.
 
-  This is a bit embarrassing but it would have been up to you to make sure that your feature branch is compatible with `main` by the time you merged it.
-
-  _Note:_ In case you do not want to make your `Weekend-Out` public you can view the "Network" in your command line:
+  _Note:_ If you prefer not to make your `Weekend-Out` repository public, you can view the "Network" in your command line:
 
   ```bash
   git checkout main
