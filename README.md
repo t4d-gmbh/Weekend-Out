@@ -227,7 +227,8 @@ Now, we do not want to blame anyone, but it would be nice to find out how it cou
   This is a bit embarrassing but it would have been up to you to make sure that your feature branch is compatible with `main` by the time you merged it.
 
   _Note:_ In case you do not want to make your `Weekend-Out` public you can view the "Network" in your command line:
-  ```bash` 
+
+  ```bash
   git checkout main
   git pull
   git log --all --decorate --oneline --graph
