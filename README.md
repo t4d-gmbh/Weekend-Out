@@ -20,7 +20,9 @@ Thanks god they have learned about Git and how to resolve conflicts through the 
 
 ### 1. Set up the repository and add items
 
-First, create a new repository using the Weekend Out repository as a template, aka forking. You can easily do this via the **Use this template** green drop-down list located on the top-right of this page or simply click [here](https://github.com/new?template_name=Weekend-Out&template_owner=t4d-gmbh).
+First, create a new repository using the Weekend Out repository as a template, aka forking.
+You can easily do this via the **Use this template** green drop-down list located on the top-right of this page or simply click [here](https://github.com/new?template_name=Weekend-Out&template_owner=t4d-gmbh).
+_Note: For the rest of this exercise it is assumed that you also named your repository `Weekend-Out`!_
 
 Clone the repository to your local machine and navigate to the project directory. Don't forget to **add your username** in the directory path!
 
@@ -162,7 +164,8 @@ Carol, the tech enthusiast, wants to add a drone to the packing list.
 She will start by creating a project board and adding tasks/issues for the items she wants to bring.
 
 - Go to the repository on the remote server: [Weekend Out](https://github.com/t4d-gmbh/Weekend-Out/)
-    - Fork the repository to your account OR continue on the repository you used to complete Part 1.
+    - [Create your own Weekend-Out Repository](https://github.com/new?template_name=Weekend-Out&template_owner=t4d-gmbh) using this repository as a template OR continue on the repository you used to complete Part 1.
+      _Note: For the rest of this exercise it is assumed that you also named your repository `Weekend-Out`!_
 - Go to "Projects" and create a new project board called "Drone Feature".
 - Add tasks/issues to the project board:
   - **Task 1**: Add drone to packing list.
