@@ -211,27 +211,40 @@ If you are satisfied with you edits, you can consider merging your feature branc
 You've just completed a Feature Branch cycle! 🥳🎈Congrats!
 
 - Go to the `Issues` tab of your `Weeken-Out` repository and check the issue you created earlier.
-  If everything went according to plan, your issue should now be marked as closed.
+  If everything went according to plan, your Issue should now be marked as closed.
   
-- Now, head to the "Code" and check the repository.
+- Now, head to the "Code" tab and have a look at the content of the repository.
   You should see the new file for Carol's done list - so far, so good!
 
-  But wait! There is another file named `Carols_drone_list.md` with the commit message: `"Adding Carols done list"`.
-  Click on the message, and you will be directed to the detailed view of a commit where Alice added that file.
+  But wait! **There is another file** named `Carols_drone_list.md` with the commit message: `"Adding Carols done list"`.
+  Click on the message, and you will be directed to the detailed view of the commit whith which Alice added that file.
 
-It seems not everyone was informed that you were in charge of this list and Alice went ahead and took care of it.
+It seems not everyone was informed that you were in charge of the drone list and Alice went ahead and took care of it.
 
-Now, without casting blame around, it would be helpful to understand how the healthy reference ended up with two files for the same list.
+Now, without casting blame around, it would be helpful to understand how the healthy reference branch ended up with two files for the same list.
 
-- Go to the "Insights" tab in your `Weekend-Out` Repository and select `Network` (note: the repository needs to be `public` to access this feature).
-  You'll see a graph showing what happened - Alice pushed changes to the `main` branch while you were still working on your feature branch.
+- _Q.1._ Who was first to add the list to `main`?
+- _Q.2._ What did you do wrong, if anything?
+- _Q.3._ What did Alice do wrong, if anything?
+
+- _Discussoin:_ How can such a situation be avoided?
+
+_Hints:_
+
+  - The "Insights" tab in your `Weekend-Out` Repository has a `Network` view (Note: Only accessible in `public` Repositories).
+    The `Network` view depicts a chronologically order graph with all commits.
+
+    _Alternatively:_ If you prefer not to make your `Weekend-Out` repository public, you can view the "Network" in your command line:
+
+    ```bash
+    git checkout main
+    git pull
+    git log --all --decorate --oneline --graph
+    ```
+
+
+    - Alice pushed changes to the `main` branch while you were still working on your feature branch.
 
   This situation is a bit akward, but it is always each person's responsability to ensure their feature branch is up to date with `main` _before_ merging.
 
-  _Note:_ If you prefer not to make your `Weekend-Out` repository public, you can view the "Network" in your command line:
 
-  ```bash
-  git checkout main
-  git pull
-  git log --all --decorate --oneline --graph
-  ```

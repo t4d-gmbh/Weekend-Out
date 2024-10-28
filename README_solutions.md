@@ -206,3 +206,118 @@ Now the `feature/blankets` branch is merged into the main branch, and the confli
 ---
 > **Solution Q.14**: Avoiding merge conflicts is generally not a good strategy. Merge conflicts are a natural part of collaborative development and can help identify conflicting changes early. Resolving conflicts allows team members to communicate and understand each other's changes, leading to better code quality and collaboration. It is important to embrace conflicts as an opportunity to improve the codebase and the team's communication. Avoiding them with rebase invents a history that looks as if the developers never concurrently worked on a same branch. If you value the "logbook" character of a git history (which is often the case in academia) rebases are a no-no!
 ---
+
+---
+---
+
+
+## Part 2: Feature Branch Development Cycle and Conflict Resolution Online
+
+Now that you've set up the repository and added items locally, it's time to walk through a feature branch development cycle using the project management tools provided by **GitHub**. 
+Part 2 will focus on working **entirely online in the remote IDE**.
+
+### 1. Creating a Project Board and Tasks
+
+Carol, the tech enthusiast, wants to bring a drone and suggests creating a dedicated packing list since the drone requires specific additional items.
+
+She starts by creating an Issue to explain how she would like to reorganize your packing list.
+
+- Go to the repository on the remote server: [Weekend Out](https://github.com/t4d-gmbh/Weekend-Out/)
+    - [Create your own Weekend-Out Repository](https://github.com/new?template_name=Weekend-Out&template_owner=t4d-gmbh) using this repository as a template OR continue on the repository you used for Part 1.
+
+      _Note: For the rest of this exercise, we assume that you've also named your repository `Weekend-Out`!_
+
+- Go to your own `Weekend-Out` repository and open a new Issue for Carol.
+  Name it `Package list restructuring` (Please keep the name as is!) and add a breif description of Carol wants to do.
+
+### 2. Creating a New Feature Branch Online
+
+Carol has added the items she wants in the list as a comment to the Issue.
+With that, you're ready to begin:
+
+- Refresh the Issue page to see Carol's comment (actually posted by a GitHub bot) with the items she wants to add.
+
+- Create a new branch directly from the Issue's web view.
+  (You find this option on the right under "Development")
+
+- Keep the suggested branch name as is, and checkout the newly created branch on your device.
+
+- Create a new markdown file for Carol's drone list and add the items she mentionned in her comment.
+
+- Once you’ve made your changes, push them to the remote repository.
+
+### 3. Create a Pull Request
+
+Now that you've implemented the requested feature and pushed your branch back to the remote repository, you can create a pull request to fromally propose merging your feature branch into `main`.
+
+- Go back to your `Weekend-Out` Repository on **GitHub**. You should see a notification bar prompting you to open a Pull Request. If you don't see it, click on "Pull requests" and then "New pull request".
+
+- Assign yourself to the Pull Request, and go ahead and create it.
+
+- You will be redirected to your pull request's details. For now, ignore the "Checks", but take a look at the "Commits" and "Files changed" tabs.
+
+### 4. Merging the Feature Branch into Main
+
+If you are satisfied with you edits, you can consider merging your feature branch into the healthy reference `main`.
+
+- Remember, it's your responsability to ensure the changes you introduce are compatible with the `main` branch at the time of merging - not based on a prior state!
+
+- If everything looks good, merge your branch by clicking on the green "Merge pull request" button at the bottom of the Pull Request page. Confirm by clicking "Merge".
+
+### 5. Inspect What Just Happened
+
+You've just completed a Feature Branch cycle! 🥳🎈Congrats!
+
+- Go to the `Issues` tab of your `Weeken-Out` repository and check the issue you created earlier.
+  If everything went according to plan, your Issue should now be marked as closed.
+  
+- Now, head to the "Code" tab and have a look at the content of the repository.
+  You should see the new file for Carol's done list - so far, so good!
+
+  But wait! **There is another file** named `Carols_drone_list.md` with the commit message: `"Adding Carols done list"`.
+  Click on the message, and you will be directed to the detailed view of the commit whith which Alice added that file.
+
+It seems not everyone was informed that you were in charge of the drone list and Alice went ahead and took care of it.
+
+Now, without casting blame around, it would be helpful to understand how the healthy reference branch ended up with two files for the same list.
+
+- _Q.1._ Who was first to add the list to `main`?
+- _Q.2._ What did you do wrong, if anything?
+- _Q.3._ What did Alice do wrong, if anything?
+
+_Hints:_
+
+  - The "Insights" tab in your `Weekend-Out` Repository has a `Network` view (Note: Only accessible in `public` Repositories).
+    The `Network` view depicts a chronologically order graph with all commits.
+
+    _Alternatively:_ If you prefer not to make your `Weekend-Out` repository public, you can view the "Network" in your command line:
+
+    ```bash
+    git checkout main
+    git pull
+    git log --all --decorate --oneline --graph
+    ```
+
+- _Q.1._ Who was first to add the list to `main`?
+
+---
+
+> **Solution Q.1**: Alice pushed changes to the `main` branch while you were still working on your feature branch, so Alice was first! 
+
+---
+
+- _Q.2._ What did you do wrong, if anything?
+
+---
+
+> **Solution Q.2**: This situation is a bit awkward, but it is always each person's responsibility to ensure their feature branch is up to date with `main` _before_ merging. In this case you should have checked if your changes were compatible with the state of the healthy reference branch.
+
+---
+
+- _Q.3._ What did Alice do wrong, if anything?
+
+---
+
+> **Solution Q.3**: Actually, Alice also contributed to this situation. She did not check that there was an ongoing feature branch cycle for the exact same edit that she intended to do. When working with remote services, such as **GitHub** or **GitLab** your first go-to place for questions, suggestions, and alike should always be the list of Issues (opened and closed). If Alice had checked before contributing she would have spotted your Issue, the related Pull Request and that you were assigned for that task. She could have left a comment on the Issue or Merge Request that she would like to contribute and the two of you could have decided how to distribute the work.
+
+---
