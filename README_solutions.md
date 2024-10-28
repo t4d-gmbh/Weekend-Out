@@ -112,7 +112,7 @@ Go to the repository on the remote server and open the `packing_list.md` file. A
 
 ## 3. Locally merge the feature branch into the main branch
 
-You want to include the additional items from the main branch in your feature branch. To do this, you need to merge the `feature/blankets` branch into the main branch.
+You want to include the additional items from the main branch in your feature branch. To do this, you need to merge the `feature/blankets` branch into the `main` branch.
 
 On your local machine, switch to the main branch and pull the latest changes from the remote repository.
 
