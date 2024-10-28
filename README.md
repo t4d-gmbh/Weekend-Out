@@ -150,6 +150,9 @@ Now the `feature/blankets` branch is merged into the main branch, and the confli
 - _Q.14._ Which strategy would you have had to use to merge the feature branch into the main branch without creating a merge conflict?
 -  _Q.15_. Is avoiding a merge conflicts generally a good strategy?
 
+---
+---
+
 ## Part 2: Feature Branch Development Cycle and Conflict Resolution Online
 
 Now that you've set up the repository and added items locally, it's time to step through a feature branch development cycle using the project management tools provided by the remote services. 
