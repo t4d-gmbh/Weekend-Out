@@ -1,0 +1,30 @@
+name: Auto Commit Blanket
+
+on:
+  create
+
+permissions:
+  packages: read
+  contents: write
+  pull-requests: write
+  repository-projects: write
+
+jobs:
+  auto-commit-on-blanket-branch:
+    if: ${{ contains(github.ref, 'blanket')}}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          ref: main
+
+      - name: Make changes to packing_list.md
+        run: |
+          echo "- [ ] extrawarm blanket" >> packing_list.md
+          git config --global user.name 'Carol[bot]'
+          git config --global user.email 'Carol[bot]@wonderland.com'
+          git add packing_list.md
+          git commit -m "Adding warm blanket"
+          git push origin main
