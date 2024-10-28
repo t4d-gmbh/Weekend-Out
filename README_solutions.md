@@ -104,13 +104,7 @@ git push origin feature/blankets
 > **Solution Q.7**: Having multiple remotes can be useful when working with different teams or repositories. For example, you might have a remote repository for your team's work (e.g. on a private enterprise server) and another remote repository for open-source contributions (e.g. on a public platform like GitHub, GitLab, or Bitbucket). You can push and pull changes from different remotes depending on the context.
 ---
 
-## 2. Add items on the main branch on the remote repository
-
-Make changes in the `packing_list.md` file on the main branch on the remote repository directly in the browser.
-
-Go to the repository on the remote server and open the `packing_list.md` file. Add some items and commit the changes.
-
-## 3. Locally merge the feature branch into the main branch
+## 2. Locally merge the feature branch into the main branch
 
 You want to include the additional items from the main branch in your feature branch. To do this, you need to merge the `feature/blankets` branch into the `main` branch.
 
@@ -161,7 +155,7 @@ git merge feature/blankets
 > **Solution Q.13**: If there is no merge conflict, or you resolve the merge conflict in the same way (i.e. chose the same content) then the resulting state would be the same. However, what changes is which branch gets moved forward to the new commit: If you merge `main` into `feature/blankets` the `main` will still point to the same commit, but `feature/blankets` will be updated.
 ---
 
-## 4. Resolve the merge conflict
+## 3. Resolve the merge conflict
 
 Open the `packing_list.md` file and resolve the merge conflict.
 
@@ -193,12 +187,12 @@ Open the `packing_list.md` file and resolve the merge conflict.
 
 _Note_: You can also use a merge tool to resolve the conflict. E.g.: `git mergetool` or in IDEs like Visual Studio Code, you can use the built-in merge tool to resolve the conflict. It will show you the changes from both branches side by side, and you can choose which changes to keep.
 
-## 5. Push the changes to the remote repository
+## 4. Push the changes to the remote repository
 
 Push the changes to the remote repository.
 
 ```bash
-git push origin main
+git push
 ```
 
 Now the `feature/blankets` branch is merged into the main branch, and the conflict are resolved. The packing list is updated with the items from both branches.

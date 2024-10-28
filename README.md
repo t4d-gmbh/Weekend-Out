@@ -76,13 +76,7 @@ git push origin feature/blankets
 - _Q.6._ What would be the result of the `git push` command if you didn't specify the branch name? Think of a situation where you need to explicitly state the name of the remote and why this situation might be useful.
 - _Q.7._ In which cases would it be useful to have multiple remote repositories?
 
-## 2. Add items on the main branch on the remote repository
-
-Make changes in the `packing_list.md` file on the main branch on the remote repository directly in the browser.
-
-Go to the repository on the remote server and open the `packing_list.md` file. Add some items and commit the changes.
-
-## 3. Locally merge the feature branch into the main branch
+## 2. Locally merge the feature branch into the main branch
 
 You want to include the additional items from the main branch in your feature branch. To do this, you need to merge the `feature/blankets` branch into the `main` branch.
 
@@ -108,7 +102,9 @@ git merge feature/blankets
 - _Q.12._ How could you prevent a merge commit from being created when merging branches? Why would you want to do that?
 - _Q.13._ What would have been the result if you had merged the `main` branch into the `feature/blankets` branch instead?
 
-## 4. Resolve the merge conflict
+## 3. Resolve the merge conflict
+
+Oops! It seems Carol beat you to it and has already added some blankets to the list.
 
 Open the `packing_list.md` file and resolve the merge conflict.
 
@@ -141,12 +137,12 @@ Open the `packing_list.md` file and resolve the merge conflict.
 _Note_: You can also use a merge tool to resolve the conflict. E.g.: `git mergetool` or in IDEs like Visual Studio Code, you can use the built-in merge tool to resolve the conflict. It will show you the changes from both branches side by side, and you can choose which changes to keep.
 
 
-## 5. Push the changes to the remote repository
+## 4. Push the changes to the remote repository
 
 Push the changes to the remote repository.
 
 ```bash
-git push origin main
+git push
 ```
 
 Now the `feature/blankets` branch is merged into the main branch, and the conflict are resolved. The packing list is updated with the items from both branches.
