@@ -2,7 +2,7 @@ name: Auto Commit Changes
 
 on:
   pull_request:
-    types: [created]
+    types: [opened]
     branches-ignore:
       - 'dev/**'
 
@@ -14,11 +14,14 @@ permissions:
 
 jobs:
   auto-commit:
+    if: ${{!startsWith(github.head_ref, 'dev/')}}
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          ref: main
 
       - name: Set up Git
         run: |
@@ -33,7 +36,4 @@ jobs:
 
       - name: Push changes to main branch
         run: |
-          git fetch origin
-          git checkout main
-          git merge --no-ff ${{ github.ref }}
           git push origin main
