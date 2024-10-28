@@ -22,6 +22,7 @@ Thanks god they have learned about Git and how to resolve conflicts through the 
 
 First, create a new repository using the Weekend Out repository as a template, aka forking.
 You can easily do this via the **Use this template** green drop-down list located on the top-right of this page or simply click [here](https://github.com/new?template_name=Weekend-Out&template_owner=t4d-gmbh).
+
 _Note: For the rest of this exercise it is assumed that you also named your repository `Weekend-Out`!_
 
 Clone the repository to your local machine and navigate to the project directory. Don't forget to **add your username** in the directory path!
@@ -165,6 +166,7 @@ She will start by creating a project board and adding tasks/issues for the items
 
 - Go to the repository on the remote server: [Weekend Out](https://github.com/t4d-gmbh/Weekend-Out/)
     - [Create your own Weekend-Out Repository](https://github.com/new?template_name=Weekend-Out&template_owner=t4d-gmbh) using this repository as a template OR continue on the repository you used to complete Part 1.
+
       _Note: For the rest of this exercise it is assumed that you also named your repository `Weekend-Out`!_
 - Go to "Projects" and create a new project board called "Drone Feature".
 - Add tasks/issues to the project board:
