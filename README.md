@@ -20,7 +20,7 @@ Thanks god they have learned about Git and how to resolve conflicts through the 
 
 ### 1. Set up the repository and add items
 
-First, create a new repository using the Weekend Out repository as a template, aka forking. You can easily do this via the **Use this template** green drop-down list located on the top-right of this page.
+First, create a new repository using the Weekend Out repository as a template, aka forking. You can easily do this via the **Use this template** green drop-down list located on the top-right of this page or simply click [here](https://github.com/new?template_name=Weekend-Out&template_owner=t4d-gmbh).
 
 Clone the repository to your local machine and navigate to the project directory. Don't forget to **add your username** in the directory path!
 
@@ -138,7 +138,7 @@ Open the `packing_list.md` file and resolve the merge conflict.
 _Note_: You can also use a merge tool to resolve the conflict. E.g.: `git mergetool` or in IDEs like Visual Studio Code, you can use the built-in merge tool to resolve the conflict. It will show you the changes from both branches side by side, and you can choose which changes to keep.
 
 
-### 5. Push the changes to the remote repository
+## 5. Push the changes to the remote repository
 
 Push the changes to the remote repository.
 
@@ -146,10 +146,10 @@ Push the changes to the remote repository.
 git push origin main
 ```
 
-Now the `feature/blankets` branch is merged into the `main` branch, and the conflict are resolved. The packing list is updated with the items from both branches.
+Now the `feature/blankets` branch is merged into the main branch, and the conflict are resolved. The packing list is updated with the items from both branches.
 
-- Which strategy would you have had to use to merge the feature branch into the main branch without creating a merge conflict?
-- Is avoiding a merge conflicts generally a good strategy?
+- _Q.14._ Which strategy would you have had to use to merge the feature branch into the main branch without creating a merge conflict?
+-  _Q.15_. Is avoiding a merge conflicts generally a good strategy?
 
 ## Part 2: Feature Branch Development Cycle and Conflict Resolution Online
 
