@@ -20,7 +20,10 @@ Thanks god they have learned about Git and how to resolve conflicts through the 
 
 ### 1. Set up the repository and add items
 
-First, create a new repository using the Weekend Out repository as a template, aka forking. You can easily do this via the **Use this template** green drop-down list located on the top-right of this page.
+First, create a new repository using the Weekend Out repository as a template, aka forking.
+You can easily do this via the **Use this template** green drop-down list located on the top-right of this page or simply click [here](https://github.com/new?template_name=Weekend-Out&template_owner=t4d-gmbh).
+
+_Note: For the rest of this exercise it is assumed that you also named your repository `Weekend-Out`!_
 
 Clone the repository to your local machine and navigate to the project directory. Don't forget to **add your username** in the directory path!
 
@@ -101,15 +104,9 @@ git push origin feature/blankets
 > **Solution Q.7**: Having multiple remotes can be useful when working with different teams or repositories. For example, you might have a remote repository for your team's work (e.g. on a private enterprise server) and another remote repository for open-source contributions (e.g. on a public platform like GitHub, GitLab, or Bitbucket). You can push and pull changes from different remotes depending on the context.
 ---
 
-## 2. Add items on the main branch on the remote repository
+## 2. Locally merge the feature branch into the main branch
 
-Make changes in the `packing_list.md` file on the main branch on the remote repository directly in the browser.
-
-Go to the repository on the remote server and open the `packing_list.md` file. Add some items and commit the changes.
-
-## 3. Locally merge the feature branch into the main branch
-
-You want to include the additional items from the main branch in your feature branch. To do this, you need to merge the `feature/blankets` branch into the main branch.
+You want to include the additional items from the main branch in your feature branch. To do this, you need to merge the `feature/blankets` branch into the `main` branch.
 
 On your local machine, switch to the main branch and pull the latest changes from the remote repository.
 
@@ -148,13 +145,17 @@ git merge feature/blankets
 - _Q.12._ How could you prevent a merge commit from being created when merging branches? Why would you want to do that?
 ---
 > **Solution Q.12**: By default, `git merge` performs a fast-forward merge if possible, which is equal to `git merge --ff`. This means that if the branch being merged is directly ahead of the current branch, Git will simply move the branch pointer forward to the latest commit, avoiding the creation of a merge commit. For example, if your current branch is `main` and you want to merge `feature/blankets`: `git merge feature/blankets` if `main` can be fast-forwarded to include all commits from `feature/blankets`, Git will do so without by creating a merge commit. If there are divergent commit on both branches, Git will create a merge commit to combine the histories.
-Non-default merge scenarios could be:
+> Non-default merge scenarios could be:
 > - *Merge with no fast-forward*: You want to ensure a merge commit is always created, even if a fast-forward merge is possible: `git merge --no-ff feature/blankets`. Git creates a merge commit to preserve the context of the feature branch. This can be useful for maintaining a clear project history, where each feature or bug fix is encapsulated in its own branch and merge commit, e.g., a merge commit clearly indicates that a feature or bug fix branch was integrated into the main branch. This helps in understanding the development history and the context of changes.
 > - *Rebase before merge*: Remember that `git pull` first fetches the lates changes from the remote with `git fetch` and then either calls `git merge` to fast-forward ahead of the current branch or rebases your current branch of top of those changes. You want to rebase your current branch on top of the branch you are merging from to maintain a linear history: `git pull --rebase`
-_Note_: Read the manuals of `git merge` and `git pull` to understand how different arguments affect each other.
+> _Note_: Read the manuals of `git merge` and `git pull` to understand how different arguments affect each other.
+---
+- _Q.13._ What would have been the result if you had merged the `main` branch into the `feature/blankets` branch instead?
+---
+> **Solution Q.13**: If there is no merge conflict, or you resolve the merge conflict in the same way (i.e. chose the same content) then the resulting state would be the same. However, what changes is which branch gets moved forward to the new commit: If you merge `main` into `feature/blankets` the `main` will still point to the same commit, but `feature/blankets` will be updated.
 ---
 
-## 4. Resolve the merge conflict
+## 3. Resolve the merge conflict
 
 Open the `packing_list.md` file and resolve the merge conflict.
 
@@ -186,23 +187,22 @@ Open the `packing_list.md` file and resolve the merge conflict.
 
 _Note_: You can also use a merge tool to resolve the conflict. E.g.: `git mergetool` or in IDEs like Visual Studio Code, you can use the built-in merge tool to resolve the conflict. It will show you the changes from both branches side by side, and you can choose which changes to keep.
 
-## 5. Push the changes to the remote repository
+## 4. Push the changes to the remote repository
 
 Push the changes to the remote repository.
 
 ```bash
-git push origin main
+git push
 ```
 
 Now the `feature/blankets` branch is merged into the main branch, and the conflict are resolved. The packing list is updated with the items from both branches.
 
-- _Q.13._ Which strategy would you have had to use to merge the feature branch into the main branch without creating a merge conflict?
+- _Q.14._ Which strategy would you have had to use to merge the feature branch into the main branch without creating a merge conflict?
 ---
 > **Solution Q.13**: To merge the feature branch into the main branch without creating a merge conflict, you could have used a rebase strategy. This would have applied the changes from the feature branch on top of the main branch, avoiding the conflict. However, rebasing changes the commit history and should be used with caution, especially in shared repositories.
 ---
 
--  Q.14. Is avoiding a merge conflicts generally a good strategy?
+-  _Q.15._ Is avoiding a merge conflicts generally a good strategy?
 ---
 > **Solution Q.14**: Avoiding merge conflicts is generally not a good strategy. Merge conflicts are a natural part of collaborative development and can help identify conflicting changes early. Resolving conflicts allows team members to communicate and understand each other's changes, leading to better code quality and collaboration. It is important to embrace conflicts as an opportunity to improve the codebase and the team's communication. Avoiding them with rebase invents a history that looks as if the developers never concurrently worked on a same branch. If you value the "logbook" character of a git history (which is often the case in academia) rebases are a no-no!
 ---
-
