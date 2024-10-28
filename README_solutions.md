@@ -148,10 +148,14 @@ git merge feature/blankets
 - _Q.12._ How could you prevent a merge commit from being created when merging branches? Why would you want to do that?
 ---
 > **Solution Q.12**: By default, `git merge` performs a fast-forward merge if possible, which is equal to `git merge --ff`. This means that if the branch being merged is directly ahead of the current branch, Git will simply move the branch pointer forward to the latest commit, avoiding the creation of a merge commit. For example, if your current branch is `main` and you want to merge `feature/blankets`: `git merge feature/blankets` if `main` can be fast-forwarded to include all commits from `feature/blankets`, Git will do so without by creating a merge commit. If there are divergent commit on both branches, Git will create a merge commit to combine the histories.
-Non-default merge scenarios could be:
+> Non-default merge scenarios could be:
 > - *Merge with no fast-forward*: You want to ensure a merge commit is always created, even if a fast-forward merge is possible: `git merge --no-ff feature/blankets`. Git creates a merge commit to preserve the context of the feature branch. This can be useful for maintaining a clear project history, where each feature or bug fix is encapsulated in its own branch and merge commit, e.g., a merge commit clearly indicates that a feature or bug fix branch was integrated into the main branch. This helps in understanding the development history and the context of changes.
 > - *Rebase before merge*: Remember that `git pull` first fetches the lates changes from the remote with `git fetch` and then either calls `git merge` to fast-forward ahead of the current branch or rebases your current branch of top of those changes. You want to rebase your current branch on top of the branch you are merging from to maintain a linear history: `git pull --rebase`
-_Note_: Read the manuals of `git merge` and `git pull` to understand how different arguments affect each other.
+> _Note_: Read the manuals of `git merge` and `git pull` to understand how different arguments affect each other.
+---
+- _Q.13._ What would have been the result if you had merged the `main` branch into the `feature/blankets` branch instead?
+---
+> **Solution Q.13**: If there is no merge conflict, or you resolve the merge conflict in the same way (i.e. chose the same content) then the resulting state would be the same. However, what changes is which branch gets moved forward to the new commit: If you merge `main` into `feature/blankets` the `main` will still point to the same commit, but `feature/blankets` will be updated.
 ---
 
 ## 4. Resolve the merge conflict
@@ -196,13 +200,12 @@ git push origin main
 
 Now the `feature/blankets` branch is merged into the main branch, and the conflict are resolved. The packing list is updated with the items from both branches.
 
-- _Q.13._ Which strategy would you have had to use to merge the feature branch into the main branch without creating a merge conflict?
+- _Q.14._ Which strategy would you have had to use to merge the feature branch into the main branch without creating a merge conflict?
 ---
 > **Solution Q.13**: To merge the feature branch into the main branch without creating a merge conflict, you could have used a rebase strategy. This would have applied the changes from the feature branch on top of the main branch, avoiding the conflict. However, rebasing changes the commit history and should be used with caution, especially in shared repositories.
 ---
 
--  Q.14. Is avoiding a merge conflicts generally a good strategy?
+-  _Q.15._ Is avoiding a merge conflicts generally a good strategy?
 ---
 > **Solution Q.14**: Avoiding merge conflicts is generally not a good strategy. Merge conflicts are a natural part of collaborative development and can help identify conflicting changes early. Resolving conflicts allows team members to communicate and understand each other's changes, leading to better code quality and collaboration. It is important to embrace conflicts as an opportunity to improve the codebase and the team's communication. Avoiding them with rebase invents a history that looks as if the developers never concurrently worked on a same branch. If you value the "logbook" character of a git history (which is often the case in academia) rebases are a no-no!
 ---
-
