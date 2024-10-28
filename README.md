@@ -157,71 +157,78 @@ This part will focus on working entirely online in the remote IDE.
 
 ### 1. Creating a Project Board and Tasks
 
-Carol, the tech enthusiast, wants to add a drone to the packing list. 
-She will start by creating a project board and adding tasks/issues for the items she wants to bring.
+Carol, the tech enthusiast, wants to bring a drone and argues that it would be cleaner to create a dedicated package list, since the drone requires a few items to be brought along.
+
+She start by creating an Issue the explain how she would like to reorganize your package list.
 
 - Go to the repository on the remote server: [Weekend Out](https://github.com/t4d-gmbh/Weekend-Out/)
     - [Create your own Weekend-Out Repository](https://github.com/new?template_name=Weekend-Out&template_owner=t4d-gmbh) using this repository as a template OR continue on the repository you used to complete Part 1.
 
       _Note: For the rest of this exercise it is assumed that you also named your repository `Weekend-Out`!_
-- Go to "Projects" and create a new project board called "Drone Feature".
-- Add tasks/issues to the project board:
-  - **Task 1**: Add drone to packing list.
-  - **Task 2**: Add extra batteries to packing list.
-  - **Task 3**: Add camera to packing list.
-  - **Task 4**: Review changes and resolve conflicts.
+
+- Go to your own `Weekend-Out` repository and open a new issue for Carol.
+  Call it `Package list restructuring` (Please keep the name as is!) and add a short descripion about what it is that Carol wants to do.
 
 ### 2. Creating a New Feature Branch Online
 
-Carol will create a new feature branch directly on the remote repository.
+Carol added the items she wanted in the list as a comment to the Issue.
+With this you have all you need to get started:
 
-- Go to your forked repository on the remote server (GitHub or GitLab).
-- Create a new branch called `feature/drone` from the main branch.
+- Refresh the page of the Issue to find a comment Carol (actually a github bot) left with what it is that she wants to add.
 
-### 3. Adding Items to the Feature Branch
+- Create a new branch directly from the Web-View of the Issue.
+  (You find it on the right under "Development")
 
-Carol will add her items to the `packing_list.md` file directly in the browser.
+- Keep the suggested branch name as is and checkout the newly created branch on you device.
 
-- Navigate to the `packing_list.md` file in the `feature/drone` branch in the remote repository. Open the file for editing in the remote IDE.
-- Add the first item that Carol wants to bring (e.g., drone).
-- Commit this first added item with a descriptive message. Link the commit to the respective task on the project board. Hint: When you start typing `#`, you will see a list of tasks from the project board to link to the commit.
-    - Why is it useful to link commits to tasks on the project board?
+- Create a new markdown file for Carol's drone list and add the items she wants to bring.
 
-### 4. Using Project Management Tools
+- Push your changes to the remote service once you are done.
 
-Carol will use the project management tools to track her progress.
+### 3. Create a Pull Request
 
-- After completing the first task, move it manually on the project board as she completed it.
-For the other tasks, Carol will use automatic project board updates.
-- Think about how you can track the progress of a project by automatically updating the project board based on commit messages?
-- Add the other items to the `packing_list.md` file and commit them with descriptive messages. Link the commits to the respective tasks on the project board.
+Now that you have implemented the required feature and pushed the branch back to the remote, you can create a pull request to formalise your intention to merge your feature branch into `main`.
 
-### 5. Merging the Feature Branch into the Main Branch with a Pull Request
+- If you head back to your `Weekend-Out` Repository on **GitHub** you should get a notification bar asking you to open a Pull Request.
+  In case you do not see such notification, click on "Pull requests" and then on "New pull request".
 
-Once Carol has added all the items to the `packing_list.md` file, she will merge her `feature/drone` branch into the `main` branch.
+- Assign yourself to the Pull Request, go ahead an create it.
 
-- Create a pull request from `feature/drone` to `main`. Link the pull request to the tasks on the project board with [closing keywords](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue).
+- You will be redirected to the view of your first pull request. For now ignore the "Checks", but have a look at the "Commits" panel and the "Files changed" panel.
 
-### 6. Identifying and Resolving Conflicts
+### 4. Merging the Feature Branch into the Main
 
-While Carol was working on her feature branch, Alice made changes to the main branch that conflict with Carol's changes.
+If you are satisfied with you edits you can think about merging your feature branch into the healthy reference, `main`.
 
-- Resolve the conflicts in the `packing_list.md` file directly in the browser.
-- Commit the changes with a descriptive message. Remember to link the commit to the respective task on the project board.
+- Remember that it is up to you to assert that the change you introduce are compatible with the healthy reference by the time you introduce the changes and not at some point before!
 
-### 7. Completing the Pull Request
+- If you think everything is fine, go ahead an merge your branch by clicking on the green "Merge pull request" button at the bottom of the page of the Pull Request. Confirm by hitting the "Merge" button.
 
-After resolving the conflicts, Carol will request a review of her changes to the packing list from another team member.
+### 5. Inspect what just happened
 
-- Request a review from another team member on the pull request.
-- Start the review process by adding comments to specific lines in the `packing_list.md` file.
-    - Propose changes to some lines in the `packing_list.md` file.
-    - Accept the changes and approve the pull request.
-- Merge the pull request and delete the `feature/drone` branch.
-- Check the project board to see the status of the tasks. They should all be marked as "Done".
+You have just finished a Feature Branch cycle, 🥳🎈Congrats!
 
-### 7. Reflecting on the Process
+- Go to the `Issues` tab of your `Weeken-Out` repository and check on the issue you had created earlier.
+  If everything happened according to plan your issue should be in the state closed no.
 
-- Discuss the benefits of using feature branches and project management tools.
-- Reflect on the experience of resolving conflicts online.
-- Consider how these practices can improve collaboration and project management in a research setting.
+- Now head over to "Code" and checkout the repository.
+  You should find the newly created file holding the list for Carols done, so far so good!
+
+  But wait! There is another file called `Carols_drone_list.md` with a commit message next to it: `"Adding Carols done list"`.
+  Click on the text and you will be directed to the detail view of a commit in which Alice has added that new file.
+
+It seems not everyone was informed that you were in charge of implementing this list and Alice went ahead and did the same.
+
+Now, we do not want to blame anyone, but it would be nice to find out how it could happen that the healthy reference now contains two files for the same list.
+
+- Go to the "Insights" panel in your `Weekend-Out` Repository and select `Network` (note that the repository needs to be `public` to access this feature).
+  You will see a graph of what happened and will find that Alice has pushed changes to the `main` branch while you were working no your feature branch.
+
+  This is a bit embarrassing but it would have been up to you to make sure that your feature branch is compatible with `main` by the time you merged it.
+
+  _Note:_ In case you do not want to make your `Weekend-Out` public you can view the "Network" in your command line:
+  ```bash` 
+  git checkout main
+  git pull
+  git log --all --decorate --oneline --graph
+  ```
