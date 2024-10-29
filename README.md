@@ -192,9 +192,9 @@ With that, you're ready to begin:
 
 ### 3. Create a Pull Request
 
-Now that you've implemented the requested feature and pushed your branch back to the remote repository, you can create a pull request to formally propose merging your feature branch into `main`.
+Now that you've implemented the requested feature on the remote repository, you can create a pull request to formally propose merging your feature branch into `main`.
 
-- Go back to your `Weekend-Out` Repository on **GitHub**. You should see a notification bar prompting you to open a Pull Request. If you don't see it, click on "Pull requests" and then "New pull request".
+- Refresh your `Weekend-Out` Repository on **GitHub**. You should see a notification bar prompting you to open a Pull Request. If you don't see it, click on "Pull requests" and then "New pull request".
 
 - Assign yourself to the Pull Request, and go ahead and create it.
 
@@ -214,6 +214,8 @@ You've just completed a Feature Branch cycle! 🥳🎈Congrats!
 
 - Go to the `Issues` tab of your `Weekend-Out` repository and check the issue you created earlier.
   If everything went according to plan, your Issue should now be marked as closed.
+
+  _Hint:_ If you want to close multiple issues with one pull request, you can use the [closing keywords](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue) `closes`, `fixes`, or `resolves` followed by the issue number in the pull request description. E.g. `closes #1` (when you start typing `closes #`, GitHub will suggest the issue number).
   
 - Now, head to the "Code" tab and have a look at the content of the repository.
   You should see the new file for Carol's drone list - so far, so good!
