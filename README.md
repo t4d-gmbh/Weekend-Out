@@ -170,7 +170,7 @@ She starts by creating an Issue to explain how she would like to reorganize your
       _Note: For the rest of this exercise, we assume that you've also named your repository `Weekend-Out`!_
 
 - Go to your own `Weekend-Out` repository and open a new Issue for Carol.
-  Name it `Package list restructuring` (Please keep the name as is!) and add a breif description of Carol wants to do.
+  Name it `Package list restructuring` (Please keep the name as is!) and add a brief description of what Carol wants to do.
 
 ### 2. Creating a New Feature Branch Online
 
@@ -184,23 +184,23 @@ With that, you're ready to begin:
 
 - Keep the suggested branch name as is, and checkout the newly created branch on your device.
 
-- Create a new markdown file for Carol's drone list and add the items she mentionned in her comment.
+- Create a new markdown file for Carol's drone list and add the items she mentioned in her comment.
 
 - Once you’ve made your changes, push them to the remote repository.
 
 ### 3. Create a Pull Request
 
-Now that you've implemented the requested feature and pushed your branch back to the remote repository, you can create a pull request to fromally propose merging your feature branch into `main`.
+Now that you've implemented the requested feature and pushed your branch back to the remote repository, you can create a pull request to formally propose merging your feature branch into `main`.
 
 - Go back to your `Weekend-Out` Repository on **GitHub**. You should see a notification bar prompting you to open a Pull Request. If you don't see it, click on "Pull requests" and then "New pull request".
 
 - Assign yourself to the Pull Request, and go ahead and create it.
 
-- You will be redirected to your pull request's details. For now, ignore the "Checks", but take a look at the "Commits" and "Files changed" tabs.
+- You will be redirected to your pull request's details. For now, ignore the "Checks", but take a look at the tabs "Commits" and "Files changed".
 
 ### 4. Merging the Feature Branch into Main
 
-If you are satisfied with you edits, you can consider merging your feature branch into the healthy reference `main`.
+If you are satisfied with your edits, you can consider merging your feature branch into the healthy reference `main`.
 
 - Remember, it's your responsability to ensure the changes you introduce are compatible with the `main` branch at the time of merging - not based on a prior state!
 
@@ -210,24 +210,24 @@ If you are satisfied with you edits, you can consider merging your feature branc
 
 You've just completed a Feature Branch cycle! 🥳🎈Congrats!
 
-- Go to the `Issues` tab of your `Weeken-Out` repository and check the issue you created earlier.
+- Go to the `Issues` tab of your `Weekend-Out` repository and check the issue you created earlier.
   If everything went according to plan, your Issue should now be marked as closed.
   
 - Now, head to the "Code" tab and have a look at the content of the repository.
-  You should see the new file for Carol's done list - so far, so good!
+  You should see the new file for Carol's drone list - so far, so good!
 
-  But wait! **There is another file** named `Carols_drone_list.md` with the commit message: `"Adding Carols done list"`.
+  But wait! **There is another file** named `Carols_drone_list.md` with the commit message: `"Adding Carols drone list"`.
   Click on the message, and you will be directed to the detailed view of the commit whith which Alice added that file.
 
 It seems not everyone was informed that you were in charge of the drone list and Alice went ahead and took care of it.
 
-Now, without casting blame around, it would be helpful to understand how the healthy reference branch ended up with two files for the same list.
+Now, without casting blame around, it would be helpful to understand how the healthy reference branch (`main`) ended up with two files for the same list.
 
 - _Q.1._ Who was first to add the list to `main`?
 - _Q.2._ What did you do wrong, if anything?
 - _Q.3._ What did Alice do wrong, if anything?
 
-- _Discussoin:_ How can such a situation be avoided?
+- _Discussion:_ How can such a situation be avoided?
 
 _Hints:_
 
