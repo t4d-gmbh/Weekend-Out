@@ -184,9 +184,11 @@ With that, you're ready to begin:
 
 - Keep the suggested branch name as is, and checkout the newly created branch on your device.
 
-- Create a new markdown file for Carol's drone list and add the items she mentioned in her comment.
+- On the webinterface of your repository, create a new markdown file for Carol's drone list (by clicking on the `+` button next to "Code") and add the items she mentioned in her comment.
 
-- Once you’ve made your changes, push them to the remote repository.
+- Once you’ve made your changes, commit them to the new branch on your remote repository.
+
+- _Q.1._ How does the process of creating a new branch and committing changes differ between the local and remote environments? Which step is missing in the online process?
 
 ### 3. Create a Pull Request
 
@@ -223,9 +225,9 @@ It seems not everyone was informed that you were in charge of the drone list and
 
 Now, without casting blame around, it would be helpful to understand how the healthy reference branch (`main`) ended up with two files for the same list.
 
-- _Q.1._ Who was first to add the list to `main`?
-- _Q.2._ What did you do wrong, if anything?
-- _Q.3._ What did Alice do wrong, if anything?
+- _Q.2._ Who was first to add the list to `main`?
+- _Q.3._ What did you do wrong, if anything?
+- _Q.4._ What did Alice do wrong, if anything?
 
 - _Discussion:_ How can such a situation be avoided?
 
