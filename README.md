@@ -1,5 +1,14 @@
 # The Weekend Out Git Exercise
 
+---
+
+_If you enjoy our interactive Weekend-Out repository, please share it with others!_
+_Show your support by giving it a 🌟 using the ⭐-button at the top right of the page._
+
+_By starring the repository, you help increase its visibility, making it easier for others to 🔍 discover and learn 👩‍🎓 how to handle merge conflicts and other scary 👻 Git topics with confidence!_
+
+---
+
 Imagine this: A group of friends, tired from their busy university schedules, decides to take a much-needed break.
 They plan a weekend getaway to the mountains, where they can relax, hike, and enjoy nature. 
 To make sure they don’t forget anything important, they create a shared packing list in a Git repository called “Weekend Out.”
