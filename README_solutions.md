@@ -1,22 +1,18 @@
 # The Weekend Out
 
-Imagine this: A group of friends, tired from their busy university schedules, decides to take a much-needed break.
-They plan a weekend getaway to the mountains, where they can relax, hike, and enjoy nature. 
-To make sure they don’t forget anything important, they create a shared packing list in a Git repository called “Weekend Out.”
+Imagine this: You and a group of friends (Alice, Bob and Carol), tired from your busy university schedules, decide to take a much-needed break.
+You plan a weekend getaway to the mountains, where you can relax, hike, and enjoy nature. 
+To make sure you don’t forget anything important, you create a shared packing list in a Git repository called “Weekend Out.”
 
-Each friend has their own ideas about what to bring.
-Bob thinks they need extra blankets for the chilly nights, while Alice insists on packing a portable grill for a barbecue. 
-Carol, the group’s tech enthusiast, wants to bring a drone to capture stunning aerial shots of their adventure.
+Everyone has their own ideas about what to bring.
+Bob thinks you will need extra blankets for the chilly nights, while Alice insists on packing a portable grill for a barbecue. 
+Carol, the group’s tech enthusiast, wants to bring a drone to capture stunning aerial shots of your adventure.
 
-To keep things organized, they decide to use Git to manage their packing list. 
-They create branches for different categories of items: `feature/blankets`, `feature/grill`, and `feature/drone`. 
-Each friend adds their items to the list and commits their changes.
+To keep things organized, you decide to use Git to manage the packing list. 
 
-However, as they merge their branches into the main list, they encounter a problem: merge conflicts! 
-Bob and Alice both added items to the same line in the `packing_list.md` file. 
-Now, they need to resolve these conflicts to ensure everyone’s items are included.
+The stategy you agree upon is to create branches for different categories of items: `feature/essentials`, `feature/food`, and `feature/tech`. 
 
-Thanks god they have learned about Git and how to resolve conflicts through the following exercises:
+The idea is that everyone adds their items to the list in the specific branch and commits their changes.
 
 ### 1. Set up the repository and add items
 
@@ -32,10 +28,10 @@ git clone git@github.com:<username>/Weekend-Out.git
 cd Weekend-Out
 ```
 
-Create a new `feature/blankets` branch and add the items Bob wants to bring.
+Create a new `feature/essentials` branch and add the items Bob wants to bring.
 
 ```bash
-git checkout -b feature/blankets
+git checkout -b feature/essentials
 ```
 
 open the `packing_list.md` file, add some items and save the file.
@@ -53,7 +49,7 @@ Get a feeling for the repository and its commit history.
 - _Q.1._ What is the status of the repository after the commit? On which branch are you now?
 
 ---
-> **Solution Q.1**: The repository is clean, and you are on the `feature/blankets` branch.
+> **Solution Q.1**: The repository is clean, and you are on the `feature/essentials` branch.
 ---
 
 Play around with the log command to see the commit history in different formats.
@@ -86,7 +82,7 @@ git log --oneline --since="2 days ago"
 Push the branch to the remote repository.
 
 ```bash
-git push origin feature/blankets
+git push origin feature/essentials
 ```
 
 - _Q.5._ What does the `origin` refer to in the `git push` command? Hint: `git remote -v`.
@@ -106,7 +102,7 @@ git push origin feature/blankets
 
 ### 2. Locally merge the feature branch into the main branch
 
-You want to include the additional items from the main branch in your feature branch. To do this, you need to merge the `feature/blankets` branch into the `main` branch.
+You want to include the additional items from the main branch in your feature branch. To do this, you need to merge the `feature/essentials` branch into the `main` branch.
 
 On your local machine, switch to the main branch and pull the latest changes from the remote repository.
 
@@ -136,46 +132,49 @@ Before you continue, think about the following questions:
 > **Solution Q.11**: `git pull origin main` fetches changes from the remote repository (origin) and merges them into the current branch (main). It is useful when you want to pull changes from a specific branch on the remote repository. On the other hand, `git pull` fetches changes from the remote repository and merges them into the current branch. It is a shorthand for `git pull origin <current-branch>`.
 ---
 
-Merge the `feature/blankets` branch into the main branch.
+Merge the `feature/essentials` branch into the main branch.
 
 ```bash
-git merge feature/blankets
+git merge feature/essentials
 ```
 
 - _Q.12._ How could you prevent a merge commit from being created when merging branches? Why would you want to do that?
 ---
-> **Solution Q.12**: By default, `git merge` performs a fast-forward merge if possible, which is equal to `git merge --ff`. This means that if the branch being merged is directly ahead of the current branch, Git will simply move the branch pointer forward to the latest commit, avoiding the creation of a merge commit. For example, if your current branch is `main` and you want to merge `feature/blankets`: `git merge feature/blankets` if `main` can be fast-forwarded to include all commits from `feature/blankets`, Git will do so without by creating a merge commit. If there are divergent commit on both branches, Git will create a merge commit to combine the histories.
+> **Solution Q.12**: By default, `git merge` performs a fast-forward merge if possible, which is equal to `git merge --ff`. This means that if the branch being merged is directly ahead of the current branch, Git will simply move the branch pointer forward to the latest commit, avoiding the creation of a merge commit. For example, if your current branch is `main` and you want to merge `feature/essentials`: `git merge feature/essentials` if `main` can be fast-forwarded to include all commits from `feature/essentials`, Git will do so without by creating a merge commit. If there are divergent commit on both branches, Git will create a merge commit to combine the histories.
 > Non-default merge scenarios could be:
-> - *Merge with no fast-forward*: You want to ensure a merge commit is always created, even if a fast-forward merge is possible: `git merge --no-ff feature/blankets`. Git creates a merge commit to preserve the context of the feature branch. This can be useful for maintaining a clear project history, where each feature or bug fix is encapsulated in its own branch and merge commit, e.g., a merge commit clearly indicates that a feature or bug fix branch was integrated into the main branch. This helps in understanding the development history and the context of changes.
+> - *Merge with no fast-forward*: You want to ensure a merge commit is always created, even if a fast-forward merge is possible: `git merge --no-ff feature/essentials`. Git creates a merge commit to preserve the context of the feature branch. This can be useful for maintaining a clear project history, where each feature or bug fix is encapsulated in its own branch and merge commit, e.g., a merge commit clearly indicates that a feature or bug fix branch was integrated into the main branch. This helps in understanding the development history and the context of changes.
 > - *Rebase before merge*: Remember that `git pull` first fetches the lates changes from the remote with `git fetch` and then either calls `git merge` to fast-forward ahead of the current branch or rebases your current branch of top of those changes. You want to rebase your current branch on top of the branch you are merging from to maintain a linear history: `git pull --rebase`
 > _Note_: Read the manuals of `git merge` and `git pull` to understand how different arguments affect each other.
 ---
-- _Q.13._ What would have been the result if you had merged the `main` branch into the `feature/blankets` branch instead?
+- _Q.13._ What would have been the result if you had merged the `main` branch into the `feature/essentials` branch instead?
 ---
-> **Solution Q.13**: If there is no merge conflict, or you resolve the merge conflict in the same way (i.e. chose the same content) then the resulting state would be the same. However, what changes is which branch gets moved forward to the new commit: If you merge `main` into `feature/blankets` the `main` will still point to the same commit, but `feature/blankets` will be updated.
+> **Solution Q.13**: If there is no merge conflict, or you resolve the merge conflict in the same way (i.e. chose the same content) then the resulting state would be the same. However, what changes is which branch gets moved forward to the new commit: If you merge `main` into `feature/essentials` the `main` will still point to the same commit, but `feature/essentials` will be updated.
 ---
 
 ### 3. Resolve the merge conflict
 
 Open the `packing_list.md` file and resolve the merge conflict.
 
-1. The file will contain conflict markers `<<<<<<<`, `=======`, and `>>>>>>>` to indicate the conflicting changes. For example when Bob and Alice both added items to the same line in the `packing_list.md` file. Bob added "Extra blankets" directly on the main branch, and Alice added "Sleeping bags" on the `feature/blankets` branch, the file might look like this:
+1. The file will contain conflict markers `<<<<<<<`, `=======`, and `>>>>>>>` to indicate the conflicting changes.
+In this example Carol and you both added items to the same line in the `packing_list.md` file.
+If you added `- [ ] some blankets` the file might look like this:
     
     ```plaintext
-    Blankets
+    ...
+    - [ ] sleeping pad
     <<<<<<< HEAD
-    - Extra blankets
+    - [ ] some blankets
     =======
-    - Sleeping bags
-    >>>>>>> feature/blankets
+    - [ ] extrawarm blankets
+    >>>>>>> feature/essentials
     ```
 
-2. Edit the file to keep the changes you want to include. In this case, you can keep both items.
+2. Edit the file to keep the changes you want to include, for example:
     
     ```plaintext
-    Blankets
-    - Extra blankets
-    - Sleeping bags
+    ...
+    - [ ] sleeping pad
+    - [ ] extrawarm blankets
     ```
 
 3. Save the file and commit the changes.
@@ -195,11 +194,11 @@ Push the changes to the remote repository.
 git push
 ```
 
-Now the `feature/blankets` branch is merged into the main branch, and the conflict are resolved. The packing list is updated with the items from both branches.
+Now the `feature/essentials` branch is merged into the main branch, and the conflict are resolved. The packing list is updated with the items from both branches.
 
 - _Q.14._ Which strategy would you have had to use to merge the feature branch into the main branch without creating a merge conflict?
 ---
-> **Solution Q.13**: To merge the feature branch into the main branch without creating a merge conflict, you could have used a rebase strategy. This would have applied the changes from the feature branch on top of the main branch, avoiding the conflict. However, rebasing changes the commit history and should be used with caution, especially in shared repositories.
+> **Solution Q.14**: To merge the feature branch into the main branch without creating a merge conflict, you could have used a rebase strategy. This would have applied the changes from the feature branch on top of the main branch, avoiding the conflict. However, rebasing changes the commit history and should be used with caution, especially in shared repositories.
 ---
 
 -  _Q.15._ Is avoiding a merge conflicts generally a good strategy?
@@ -228,7 +227,7 @@ She starts by creating an Issue to explain how she would like to reorganize your
       _Note: For the rest of this exercise, we assume that you've also named your repository `Weekend-Out`!_
 
 - Go to your own `Weekend-Out` repository and open a new Issue for Carol.
-  Name it `Package list restructuring` (Please keep the name as is!) and add a breif description of Carol wants to do.
+  Name it **`Package list restructuring`** (please use this exact title!) and add a brief description of what Carol wants to do.
 
 ### 2. Creating a New Feature Branch Online
 
@@ -242,7 +241,9 @@ With that, you're ready to begin:
 
 - Keep the suggested branch name as is, and checkout the newly created branch on your device.
 
-- Create a new markdown file for Carol's drone list and add the items she mentionned in her comment.
+- On the webinterface of your repository, first switch to the view of the newly created branch (in the same line as the "Code" button towards the very left, select the branch name from the dropdown).
+
+- When viewing the content of the new branch, create a new markdown file for Carol's drone list (by clicking on the `+` button next to "Code") and add the items she mentioned in her comment.
 
 - Once you’ve made your changes, push them to the remote repository.
 
@@ -275,7 +276,7 @@ You've just completed a Feature Branch cycle! 🥳🎈Congrats!
   You should see the new file for Carol's done list - so far, so good!
 
   But wait! **There is another file** named `Carols_drone_list.md` with the commit message: `"Adding Carols done list"`.
-  Click on the message, and you will be directed to the detailed view of the commit whith which Alice added that file.
+  Click on the message, and you will be directed to the detailed view of the commit with which Alice added that file.
 
 It seems not everyone was informed that you were in charge of the drone list and Alice went ahead and took care of it.
 
