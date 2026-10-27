@@ -197,7 +197,7 @@ With that, you're ready to begin:
 
 - On the webinterface of your repository, first switch to the view of the newly created branch (in the same line as the "Code" button towards the very left, select the branch name from the dropdown).
 
-- When viewing the content of the new branch, create a new markdown file for Carol's drone list (by clicking on the `+` button next to "Code") and add the items she mentioned in her comment.
+- When viewing the content of the new branch, create a new markdown file for Carol's drone list (by clicking on the `+ Create new file` under the "Add file" dropdown button next to "Code") and add the items she mentioned in her comment.
 
 - Once you’ve made your changes, commit them to the new branch on your remote repository.
 

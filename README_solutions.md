@@ -243,15 +243,15 @@ With that, you're ready to begin:
 
 - On the webinterface of your repository, first switch to the view of the newly created branch (in the same line as the "Code" button towards the very left, select the branch name from the dropdown).
 
-- When viewing the content of the new branch, create a new markdown file for Carol's drone list (by clicking on the `+` button next to "Code") and add the items she mentioned in her comment.
+- When viewing the content of the new branch, create a new markdown file for Carol's drone list (by clicking on the `+ Create new file` under the "Add file" dropdown button next to "Code") and add the items she mentioned in her comment.
 
 - Once you’ve made your changes, push them to the remote repository.
 
 ### 3. Create a Pull Request
 
-Now that you've implemented the requested feature and pushed your branch back to the remote repository, you can create a pull request to fromally propose merging your feature branch into `main`.
+Now that you've implemented the requested feature and pushed your branch back to the remote repository, you can create a pull request to formally propose merging your feature branch into `main`.
 
-- Go back to your `Weekend-Out` Repository on **GitHub**. You should see a notification bar prompting you to open a Pull Request. If you don't see it, click on "Pull requests" and then "New pull request".
+- Refresh your `Weekend-Out` Repository on **GitHub**. You should see a notification bar prompting you to open a Pull Request. If you don't see it, click on "Pull requests" and then "New pull request".
 
 - Assign yourself to the Pull Request, and go ahead and create it.
 
@@ -261,7 +261,7 @@ Now that you've implemented the requested feature and pushed your branch back to
 
 If you are satisfied with you edits, you can consider merging your feature branch into the healthy reference `main`.
 
-- Remember, it's your responsability to ensure the changes you introduce are compatible with the `main` branch at the time of merging - not based on a prior state!
+- Remember, it's your responsibility to ensure the changes you introduce are compatible with the `main` branch at the time of merging - not based on a prior state!
 
 - If everything looks good, merge your branch by clicking on the green "Merge pull request" button at the bottom of the Pull Request page. Confirm by clicking "Merge".
 
